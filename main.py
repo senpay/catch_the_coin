@@ -24,10 +24,7 @@ class App:
             x=generate_random_coordinate(WORLD_WIDTH_PIXELS),
             y=generate_random_coordinate(WORLD_HEIGHT_PIXELS),
         )
-        self.__coin = Coin(
-            x=generate_random_coordinate(WORLD_WIDTH_PIXELS),
-            y=generate_random_coordinate(WORLD_HEIGHT_PIXELS),
-        )
+        self.__coin = self._get_coin()
         self.__score = 0
         self.__framecount = 0
 
@@ -41,18 +38,19 @@ class App:
     def _time_run_out(self):
         return self.__framecount > GAME_LENGTH_SECONDS * World.FPS
 
+    @staticmethod
+    def _get_coin():
+        return Coin(
+            x=generate_random_coordinate(WORLD_WIDTH_PIXELS),
+            y=generate_random_coordinate(WORLD_HEIGHT_PIXELS),
+        )
+
     def update(self):
         if self._has_catched_coin():
-            self.__coin = Coin(
-                x=generate_random_coordinate(WORLD_WIDTH_PIXELS),
-                y=generate_random_coordinate(WORLD_HEIGHT_PIXELS),
-            )
+            self.__coin = self._get_coin()
             self.__score += 1
         elif self.__coin.is_expired():
-            self.__coin = Coin(
-                x=generate_random_coordinate(WORLD_WIDTH_PIXELS),
-                y=generate_random_coordinate(WORLD_HEIGHT_PIXELS),
-            )
+            self.__coin = self._get_coin()
 
         if pyxel.btn(pyxel.KEY_LEFT):
             self.__player.move_left()
