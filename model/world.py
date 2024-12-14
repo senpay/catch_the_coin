@@ -6,6 +6,7 @@ class World:
     WIDTH = 16
     TILE_SIZE = 8
 
+
 def sprites_collide(x1, y1, x2, y2):
 
     # Check if one sprites is to the left of the other
@@ -17,6 +18,3 @@ def sprites_collide(x1, y1, x2, y2):
         return False
 
     return True
-
-
-

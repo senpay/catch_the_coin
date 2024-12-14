@@ -24,7 +24,7 @@ class Player:
     # dx should be 1 or -1 (for right or left)
     def move_horizontally(self, dx):
         new_x = self.__x + dx * self.DX
-        self.__x = new_x       
+        self.__x = new_x
 
     def move_left(self):
         self.move_horizontally(-1)
@@ -43,8 +43,8 @@ class Player:
 
     def move_down(self):
         self.move_vertically(1)
-    
-    def draw(self):  
+
+    def draw(self):
         pyxel.blt(
             self.__x,
             self.__y,

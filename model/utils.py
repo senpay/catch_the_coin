@@ -1,5 +1,6 @@
 import math
 
+
 def round_float_if_close(number, delta):
     lower = math.floor(number)
     upper = math.ceil(number)
