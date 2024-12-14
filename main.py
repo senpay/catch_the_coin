@@ -1,19 +1,31 @@
 import pyxel
 
+from model.coin import Coin
 from model.player import Player
+from model.utils import generate_random_coordinate
 from model.world import World
+
+WORLD_WIDTH_PIXELS = World.WIDTH * World.TILE_SIZE
+WORLD_HEIGHT_PIXELS = World.HEIGHT * World.TILE_SIZE
 
 
 class App:
     def __init__(self):
         pyxel.init(
-            World.WIDTH * World.TILE_SIZE,
-            World.HEIGHT * World.TILE_SIZE,
+            WORLD_WIDTH_PIXELS,
+            WORLD_HEIGHT_PIXELS,
             title="Catch the coin",
         )
         pyxel.load("mygame.pyxres")
 
-        self.__player = Player(x=0, y=0)
+        self.__player = Player(
+            x=generate_random_coordinate(WORLD_WIDTH_PIXELS),
+            y=generate_random_coordinate(WORLD_HEIGHT_PIXELS),
+        )
+        self.__coin = Coin(
+            x=generate_random_coordinate(WORLD_WIDTH_PIXELS),
+            y=generate_random_coordinate(WORLD_HEIGHT_PIXELS),
+        )
 
         pyxel.run(update=self.update, draw=self.draw)
 
@@ -34,6 +46,7 @@ class App:
     def draw(self):
         pyxel.cls(0)
         self.__player.draw()
+        self.__coin.draw()
 
 
 App()

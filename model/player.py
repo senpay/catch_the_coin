@@ -5,7 +5,7 @@ from model.utils import round_float_if_close
 
 
 class Player:
-    IMG = 0
+    IMG_BANK = 0
     WIDTH = 8
     HEIGHT = 8
     DX = 0.5
@@ -48,7 +48,7 @@ class Player:
         pyxel.blt(
             self.__x,
             self.__y,
-            self.IMG,
+            self.IMG_BANK,
             self.PLAYER_IMG_X * World.TILE_SIZE,
             self.PLAYER_IMG_Y * World.TILE_SIZE,
             self.WIDTH,

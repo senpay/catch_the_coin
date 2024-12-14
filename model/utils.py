@@ -1,4 +1,5 @@
 import math
+import random
 
 
 def round_float_if_close(number, delta):
@@ -18,3 +19,7 @@ def round_float_if_close(number, delta):
         result = number
 
     return int(result)
+
+
+def generate_random_coordinate(world_size):
+    return random.uniform(0, world_size)
