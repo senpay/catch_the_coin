@@ -17,6 +17,14 @@ class Player:
         self.__x = x
         self.__y = y
 
+    @property
+    def x(self):
+        return self.__x
+
+    @property
+    def y(self):
+        return self.__y
+
     def stop_moving(self):
         self.__x = round_float_if_close(self.__x, self.ROUNDING_ERROR_DELTA)
         self.__y = round_float_if_close(self.__y, self.ROUNDING_ERROR_DELTA)
